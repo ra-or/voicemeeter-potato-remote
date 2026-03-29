@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Voicemeeter Potato Remote</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="masthead">
+        <p class="wordmark" id="appTitle">Voicemeeter Potato Remote</p>
+
+        <div class="top-status" aria-live="polite">
+          <div class="top-status-item top-status-health">
+            <span class="health-dot" id="healthDot"></span>
+            <strong id="healthState">Checking...</strong>
+            <span id="healthMessage">Loading...</span>
+          </div>
+
+          <span class="top-status-divider" aria-hidden="true"></span>
+
+          <div class="top-status-item top-status-autostart" id="autostartChip">
+            <span class="status-chip-dot" id="autostartDot"></span>
+            <span class="status-chip-label">Auto</span>
+            <strong id="autostartState">Checking...</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="surface">
+        <section class="status-rail surface-status" aria-live="polite">
+          <div id="statusBox" class="status-box status-info">Ready for the next tap.</div>
+        </section>
+
+        <div id="presetGrid" class="preset-grid" data-layout="mosaic">
+          <p class="empty-state">Loading presets...</p>
+        </div>
+
+        <div class="surface-head surface-foot">
+          <div>
+            <p class="mode-label" id="modeLabel">Locked mode</p>
+            <p class="surface-hint" id="surfaceHint">Tap any preset to load it.</p>
+          </div>
+
+          <button id="refreshButton" class="micro-button" type="button">Refresh</button>
+        </div>
+      </section>
+
+      <section class="editor-sheet" id="editorSheet">
+        <div class="editor-top">
+          <div>
+            <p class="editor-kicker">Layout Studio</p>
+            <h2 id="editorTitle">Layout locked</h2>
+          </div>
+
+          <div id="layoutSwitch" class="layout-switch" role="group" aria-label="Preset layout">
+            <button class="layout-chip" type="button" data-layout="stack">Stack</button>
+            <button class="layout-chip" type="button" data-layout="duo">Duo</button>
+            <button class="layout-chip" type="button" data-layout="mosaic">Mosaic</button>
+          </div>
+        </div>
+
+        <div id="editorEmpty" class="editor-empty">
+          Unlock below to rename buttons, recolor them, reorder them and switch the grid.
+        </div>
+
+        <div id="editorFormWrap" class="editor-form-wrap" hidden>
+          <div class="editor-fields">
+            <label class="field">
+              <span>Button name</span>
+              <input id="labelInput" type="text" maxlength="36" placeholder="Short label">
+            </label>
+
+            <label class="field field-color">
+              <span>Accent</span>
+              <input id="colorInput" type="color" value="#58b8ff">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Small note</span>
+            <input id="descriptionInput" type="text" maxlength="80" placeholder="Optional note for this preset">
+          </label>
+
+          <div class="editor-meta">
+            <span>Original file</span>
+            <code id="filenameDisplay">-</code>
+          </div>
+
+          <div class="editor-actions">
+            <div class="move-group">
+              <button id="moveEarlierButton" class="ghost-action" type="button">Earlier</button>
+              <button id="moveLaterButton" class="ghost-action" type="button">Later</button>
+            </div>
+
+            <div id="sizeSwitch" class="size-switch" role="group" aria-label="Tile size">
+              <button class="size-chip" type="button" data-size="normal">Normal</button>
+              <button class="size-chip" type="button" data-size="wide">Wide</button>
+            </div>
+
+            <button id="savePresetButton" class="primary-button" type="button">Save look</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="dock">
+      <div class="dock-copy">
+        <strong id="lockStateLabel">Locked</strong>
+        <span id="serverAddress">Local only</span>
+      </div>
+
+      <button id="lockToggle" class="lock-button" type="button">Unlock edit</button>
+    </footer>
+  </body>
+</html>

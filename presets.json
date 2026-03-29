@@ -1,0 +1,61 @@
+{
+  "_ui": {
+    "layout_mode": "duo"
+  },
+  "1-hs-tv_lowb": {
+    "label": "headset+tv",
+    "description": "Headset and TV with the low-bass scene.",
+    "color": "#00ff11",
+    "order": 10,
+    "size": "normal"
+  },
+  "1-hs-tv_lowb-nosie_bb": {
+    "label": "tv+noisebb",
+    "description": "Dual output with cleanup and bass boost.",
+    "color": "#0011ff",
+    "order": 30,
+    "size": "normal"
+  },
+  "1-hs-tv_norb": {
+    "label": "headset+tv_b",
+    "description": "Headset and TV with the flatter scene.",
+    "color": "#ffea00",
+    "order": 50,
+    "size": "normal"
+  },
+  "1-hs-tv_norb-nosie_bb": {
+    "label": "headset+tv_b+noisebb",
+    "description": "Flat dual scene with cleanup and boost.",
+    "color": "#800000",
+    "order": 70,
+    "size": "normal"
+  },
+  "3-no_hs-tv_lowb": {
+    "label": "TV only",
+    "description": "TV-first low-bass scene.",
+    "color": "#37ff00",
+    "order": 20,
+    "size": "normal"
+  },
+  "3-no_hs-tv_lowb-nosie_bb": {
+    "label": "TV Boost",
+    "description": "TV low-bass with cleanup and bass boost.",
+    "color": "#0011ff",
+    "order": 40,
+    "size": "normal"
+  },
+  "3-no_hs-tv_norb": {
+    "label": "tv_b",
+    "description": "TV-first flatter scene.",
+    "color": "#fff700",
+    "order": 60,
+    "size": "normal"
+  },
+  "3-no_hs-tv_norb-nosie_bb": {
+    "label": "tv_b+noisebb",
+    "description": "Flat TV scene with cleanup and boost.",
+    "color": "#850016",
+    "order": 80,
+    "size": "normal"
+  }
+}

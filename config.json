@@ -1,0 +1,20 @@
+{
+  "host": "0.0.0.0",
+  "port": 8787,
+  "dll_path": "",
+  "app_title": "Voicemeeter Potato Remote",
+  "log_level": "INFO",
+  "expected_voicemeeter_type": 3,
+  "preset_library_dir": "preset_scripts/Scene_Potato",
+  "preset_file_extensions": [
+    ".xml"
+  ],
+  "a1_device_parameter": "Bus[0].device.wdm",
+  "a2_device_parameter": "Bus[1].device.wdm",
+  "a1_device_name": "",
+  "a2_device_name": "",
+  "main_route_strip_index": 5,
+  "eq_bus_index": 0,
+  "movie_mode_bus_gain_db": 0.0,
+  "night_mode_bus_gain_db": -6.0
+}

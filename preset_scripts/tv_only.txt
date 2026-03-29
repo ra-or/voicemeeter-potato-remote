@@ -1,0 +1,3 @@
+# Example Voicemeeter script preset
+Strip[{{main_route_strip_index}}].A1=0
+Strip[{{main_route_strip_index}}].A2=1

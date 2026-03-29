@@ -1,0 +1,4 @@
+# Example Voicemeeter script preset
+Bus[{{eq_bus_index}}].EQ.on=1
+Bus[{{eq_bus_index}}].EQ.AB=1
+Bus[{{eq_bus_index}}].Gain={{night_mode_bus_gain_db}}

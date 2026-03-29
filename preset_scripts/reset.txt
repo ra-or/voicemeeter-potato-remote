@@ -1,0 +1,2 @@
+# Example Voicemeeter script preset
+Command.Reset=1
