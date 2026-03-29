@@ -675,16 +675,19 @@ class VoicemeeterRemote:
         preset_path: Path,
     ) -> dict[str, Any]:
         logger.info("Loading Voicemeeter XML preset '%s' from %s", preset_name, preset_path)
-
-        if self._use_wide_strings:
-            result = int(self._string_setter(self._encode_param_name("Command.Load"), str(preset_path)))
-        else:
-            result = int(
-                self._string_setter(
-                    self._encode_param_name("Command.Load"),
-                    self._encode_ansi(str(preset_path)),
-                )
+        command = self._build_command_load_script(preset_path)
+        result = int(self._dll.VBVMR_SetParametersW(command))
+        if result != 0:
+            logger.warning(
+                "Command.Load failed for preset '%s' with code %s. "
+                "Resetting the Voicemeeter login session and retrying once.",
+                preset_name,
+                result,
             )
+            self._reset_login_session()
+            self.login()
+            self._ensure_expected_type()
+            result = int(self._dll.VBVMR_SetParametersW(command))
 
         self._raise_parameter_error(result, "Command.Load", "load_preset_file")
         return {
@@ -695,6 +698,18 @@ class VoicemeeterRemote:
             "skipped_actions": 0,
             "script_file": str(preset_path),
         }
+
+    def _build_command_load_script(self, preset_path: Path) -> str:
+        escaped_path = str(preset_path).replace('"', '\\"')
+        return f'Command.Load="{escaped_path}";'
+
+    def _reset_login_session(self) -> None:
+        try:
+            self.logout()
+        except Exception:
+            logger.exception("Voicemeeter logout failed while resetting the login session")
+        finally:
+            self._login_code = None
 
     def _resolve_value(self, value: Any) -> Any:
         if not isinstance(value, str):
